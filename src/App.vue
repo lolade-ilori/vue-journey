@@ -1,41 +1,25 @@
-<script>
-  export default{
-    // Properties returned from data() become reactive state
-    // and will be exposed on `this`.
-    data() {
-      return {
-        count: 0,
-        name: 'John Doe',
-        status: 'active',
-        tasks: ["taks 1", "task 2", "task 3"],
-        link: "https://google.com"
-      }
-    },
+<script setup>
+import {ref } from 'vue';
 
-    // Methods are functions that mutate state and trigger updates.
-    // They can be bound as event handlers in templates.
-    methods: {
-      increment() {
-        this.count++
-      },
-      toggleStatus() {
-        if(this.status === 'active') {
-          this.status = 'pending'
-        }else if(this.status === 'pending') {
-          this.status = 'inactive'
-        }else {
-          this.status = 'active'
-        }
-      }
-    },
+const name = ref("John Doe")
+const count = ref(0)
+const status = ref('active')
+const tasks = ref(['Task 1', 'Task3', 'Task 0'])
 
-    // Lifecycle hooks are called at different stages
-    // of a component's lifecycle.
-    // This function will be called when the component is mounted.
-    mounted() {
-      console.log(`The initial count is ${this.count}.`)
+const increment = () => {
+  count.value++
+}
+
+const toggleStatus = () => {
+    if(status.value === 'active') {
+      status.value = 'pending'
+    }else if(status.value === 'pending') {
+      status.value = 'inactive'
+    }else {
+      status.value = 'active'
     }
-  }
+}
+
 </script>
 
 
