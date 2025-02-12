@@ -21,7 +21,7 @@
       toggleStatus() {
         if(this.status === 'active') {
           this.status = 'pending'
-        }else if(status === 'pending') {
+        }else if(this.status === 'pending') {
           this.status = 'inactive'
         }else {
           this.status = 'active'
@@ -51,8 +51,8 @@
 
 
   <h4>Tasks</h4>
-  <ul v-for="task in tasks" :key="task">
-    {{ task }}
+  <ul>
+    <li v-for="task in tasks" :key="task">{{ task }}</li>
   </ul>
 
   <a :href="link">Click to visit google</a>
