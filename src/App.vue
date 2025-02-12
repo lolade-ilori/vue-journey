@@ -1,5 +1,5 @@
 <script setup>
-import {ref } from 'vue';
+import {ref, onMounted } from 'vue';
 
 const name = ref("John Doe")
 const count = ref(0)
@@ -32,6 +32,18 @@ const deleteTask = (index) => {
   tasks.value.splice(index, 1)
 }
 
+onMounted(async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/todos')
+    const data = await response.json()
+
+    tasks.value = data.map((data) => data.title)
+  } catch (error) {
+    console.log('Error fetching todo')
+  }
+
+})
+
 </script>
 
 
@@ -44,7 +56,7 @@ const deleteTask = (index) => {
   <br />
   <button @click="toggleStatus">Toggle Status</button>
 
-  <form v-on:submit.prevent="addTask">
+  <form @submit.prevent="addTask">
     <label for="newTask">Add Task</label>
     <input type="text" id="newTask" name="newTask" v-model="newTask">
     <button type="submit">Submit</button>
