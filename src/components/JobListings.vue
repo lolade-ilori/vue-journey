@@ -20,7 +20,7 @@ const state = reactive({
 
 onMounted(async () => {
   try {
-    const response = await axios.get("http://localhost:5000/jobs")
+    const response = await axios.get("/api/jobs")
     state.jobs = response.data
   } catch (error) {
     console.log("Error fetching jobs")
@@ -53,8 +53,7 @@ onMounted(async () => {
       <RouterLink
         to="/jobs"
         class="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-        >View All Jobs</RouterLink
-      >
+        >View All Jobs</RouterLink>
     </section>
 
 </template>
