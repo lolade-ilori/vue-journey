@@ -83,48 +83,6 @@
         "contactEmail": "contact@ipsumlorem.com",
         "contactPhone": "555-555-5555"
       }
-    },
-    {
-      "id": "23e3",
-      "type": "Full-Time",
-      "title": "Stalwart Blue",
-      "description": "eetggttttt",
-      "salary": "$50K - $60K",
-      "location": "Dallas",
-      "company": {
-        "name": "LividAI",
-        "description": "investment",
-        "contactEmail": "ol2m@mail.com",
-        "contactPhone": "0-0849940-3"
-      }
-    },
-    {
-      "id": "3d49",
-      "type": "Full-Time",
-      "title": "Stalwart Blue",
-      "description": "Software",
-      "salary": "$50K - $60K",
-      "location": "Dallas",
-      "company": {
-        "name": "LividAI",
-        "description": "Investemnt",
-        "contactEmail": "ol2m@mail.com",
-        "contactPhone": "9094-4944"
-      }
-    },
-    {
-      "id": "1181",
-      "type": "Full-Time",
-      "title": "Stalwart Blue",
-      "description": "Tester",
-      "salary": "$50K - $60K",
-      "location": "Dallas",
-      "company": {
-        "name": "LividAI",
-        "description": "olor",
-        "contactEmail": "ol2m@mail.com",
-        "contactPhone": "9094-4944"
-      }
     }
   ]
 }

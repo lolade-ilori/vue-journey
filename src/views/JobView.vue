@@ -1,8 +1,10 @@
 <script setup>
 import { reactive, onMounted } from 'vue';
 import { RouterLink, useRoute } from 'vue-router';
+import { useToast } from 'vue-toastification';
 import axios from 'axios'
 import BackButton from '@/components/BackButton.vue';
+import router from '@/router';
 
 const state = reactive({
   job: {},
@@ -11,6 +13,7 @@ const state = reactive({
 
 const route = useRoute()
 const jobId = route.params.id
+const toast = useToast()
 
 onMounted(async () => {
   try {
@@ -22,6 +25,20 @@ onMounted(async () => {
     state.isLoading = false
   }
 })
+
+const handleDelete = async () => {
+  try {
+    const confirm = window.confirm("Are you sure you want to delete?")
+    if(confirm) {
+      await axios.delete(`/api/jobs/${jobId}`)
+      toast.success('Job Deleted Succesfully')
+      router.push('/jobs')
+    }
+  } catch (error) {
+    console.log('Error deleting job', error)
+    toast.error('Job Not Deleted')
+  }
+}
 </script>
 
 <template>
@@ -93,6 +110,7 @@ onMounted(async () => {
                 class="bg-green-500 hover:bg-green-600 text-white text-center font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
                 >Edit Job</RouterLink>
               <button
+                @click="handleDelete"
                 class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full w-full focus:outline-none focus:shadow-outline mt-4 block"
               >
                 Delete Job
